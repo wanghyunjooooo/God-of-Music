@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악의 신</title>
+    <link rel="stylesheet" href="/static/mvquiz.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="" alt="">
+    </div>
+    <div class="container">
+        <img src="{{ scene['image'] }}" alt="뮤직비디오 장면" class="scene-image">
+        <input type="hidden" id="correctAnswer" value="{{ scene['answer'] }}">
+        <input type="text" id="userAnswer" placeholder="노래 제목을 입력하세요">
+        <button onclick="submitAnswer()">입력하기</button>
+        <div id="resultMessage"></div>
+    </div>
+    <script src="/static/mvquiz.js"></script>
+</body>
+</html>
