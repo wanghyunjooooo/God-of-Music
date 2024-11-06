@@ -1,25 +1,3 @@
-
-body {
-    margin: 0; /* 기본 여백 제거 */
-    font-family: Arial, sans-serif; /* 글꼴 설정 */
-}
-
-.logo {
-    position: fixed; /* 고정 위치 */
-    top: 10px; /* 상단에서 10px 떨어진 위치 */
-    left: 10px; /* 왼쪽에서 10px 떨어진 위치 */
-    z-index: 1000; /* 다른 요소 위에 표시 */
-}
-
-.container {
-    margin-top: 100px; /* 로고 아래 여백을 추가 */
-    text-align: center; /* 내용 중앙 정렬 */
-}
-
-.scene-image {
-    max-width: 100%; /* 이미지가 화면 너비를 초과하지 않도록 설정 */
-    height: auto; /* 이미지 비율 유지 */
-}
 body {
     display: flex;
     justify-content: center;
@@ -31,27 +9,44 @@ body {
     margin: 0;
 }
 
+.logo {
+    position: fixed; /* 고정 위치 */
+    top: 10px; /* 상단에서 10px 떨어진 위치 */
+    left: 10px; /* 왼쪽에서 10px 떨어진 위치 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
 .container {
-    text-align: center;
+    text-align: center; /* 내용 중앙 정렬 */
+    margin-top: 100px; /* 로고 아래 여백을 추가 */
 }
 
 .scene-image {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    max-width: 70%; /* 이미지가 화면 너비를 초과하지 않도록 설정 */
+    height: auto; /* 이미지 비율 유지 */
+    margin-bottom: 20px; /* 이미지 아래 여백 */
+}
+
+.input-area {
+    display: flex; /* 입력 필드와 버튼을 수평으로 정렬 */
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center; /* 중앙 정렬 */
+    margin-top: 10px; /* 위쪽 여백 추가 */
 }
 
 input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
+    width: 80%; /* 입력 필드 너비 설정 (80%로 조정) */
+    padding: 10px; /* 입력 필드 안쪽 여백 */
+    font-size: 16px; /* 글자 크기 설정 */
+    margin-bottom: 30px; /* 버튼과 입력 필드 간의 간격 */
 }
 
 button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    width: 20%; /* 버튼 너비 설정 (60%로 조정) */
+    padding: 8px; /* 버튼 안쪽 여백 */
+    font-size: 16px; /* 글자 크기 설정 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    border-radius: 5px;
 }
 
 #resultMessage {

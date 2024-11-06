@@ -8,13 +8,17 @@
 </head>
 <body>
     <div class="logo">
-        <img src="static/images/음악의신로고.png" alt="">
+        <img src="/static/images/음악의신로고.png" alt="음악의 신 로고">
     </div>
     <div class="container">
         <img src="{{ scene['image'] }}" alt="뮤직비디오 장면" class="scene-image">
-        <input type="hidden" id="correctAnswer" value="{{ scene['answer'] }}">
-        <input type="text" id="userAnswer" placeholder="노래 제목을 입력하세요">
-        <button onclick="submitAnswer()">입력하기</button>
+        
+        <form action="/check_answer" method="POST">
+            <input type="hidden" name="correct_answer" value="{{ scene['answer'] }}">
+            <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
+            <button type="submit">입력하기</button>
+        </form>
+
         <div id="resultMessage"></div>
     </div>
     <script src="/static/mvquiz.js"></script>
