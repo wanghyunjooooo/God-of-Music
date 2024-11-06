@@ -1,3 +1,10 @@
+
+.noto-sans-kr-uniquifier {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
 body {
     display: flex;
     justify-content: center;
@@ -5,7 +12,7 @@ body {
     height: 100vh;
     background-color: #000;
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: "Noto Sans KR", serif;
     margin: 0;
 }
 

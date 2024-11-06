@@ -5,8 +5,24 @@ app = Flask(__name__)
 
 # 퀴즈 데이터 (이미지와 정답을 추가하여 확장 가능)
 quiz_data = [
-    {"image": "/static/images/apt.png", "answer": "song1"},
-    {"image": "/static/images/별별별.png", "answer": "song2"},
+    {"image": "/static/images/apt.png", "answer": "apt"},
+    {"image": "/static/images/별별별.png", "answer": "별별별"},
+    {"image": "/static/images/네모네모.png", "answer": "네모네모"},
+    {"image": "/static/images/녹아내려요.png", "answer": "녹아내려요"},
+    {"image": "/static/images/반딧불.png", "answer": "반딧불"},
+    {"image": "/static/images/삐그덕.png", "answer": "삐그덕"},
+    {"image": "/static/images/사랑돈명예.png", "answer": "사랑돈명예"},
+    {"image": "/static/images/해야.png", "answer": "해야"},
+    {"image": "/static/images/boomboombase.png", "answer": "boomboombase"},
+    {"image": "/static/images/chkchkboom.png", "answer": "chkchkboom"},
+    {"image": "/static/images/girlsneverdie.png", "answer": "girlsneverdie"},
+    {"image": "/static/images/nectar.png", "answer": "nectar"},
+    {"image": "/static/images/sos.png", "answer": "sos"},
+    {"image": "/static/images/steady.png", "answer": "steady"},
+    {"image": "/static/images/sticky.png", "answer": "sticky"},
+    {"image": "/static/images/supernova.png", "answer": "supernova"},
+    {"image": "/static/images/supersonic.png", "answer": "supersonic"},
+    {"image": "/static/images/xo.png", "answer": "xo"},
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
 
