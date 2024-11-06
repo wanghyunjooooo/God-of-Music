@@ -20,8 +20,10 @@
         
         <form action="/check_answer" method="POST">
             <input type="hidden" name="correct_answer" value="{{ scene['answer'] }}">
-            <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
-            <button type="submit">입력하기</button>
+            <div class="input-area">
+                <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
+                <button type="submit">입력하기</button>
+            </div>
         </form>
 
         <div id="resultMessage"></div>

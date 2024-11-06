@@ -29,7 +29,8 @@ body {
 }
 
 .scene-image {
-    max-width: 70%; /* 이미지가 화면 너비를 초과하지 않도록 설정 */
+    width: 1050px;
+    height: 300px;
     height: auto; /* 이미지 비율 유지 */
     margin-bottom: 20px; /* 이미지 아래 여백 */
 }
@@ -38,22 +39,31 @@ body {
     display: flex; /* 입력 필드와 버튼을 수평으로 정렬 */
     flex-direction: column; /* 세로로 쌓기 */
     align-items: center; /* 중앙 정렬 */
-    margin-top: 10px; /* 위쪽 여백 추가 */
+    margin-top: 10px;
 }
 
 input[type="text"] {
-    width: 80%; /* 입력 필드 너비 설정 (80%로 조정) */
+    font-family: "Noto Sans KR", serif;
+    width: 1000px; /* 입력 필드 너비 설정 (80%로 조정) */
+    height: 45px;
     padding: 10px; /* 입력 필드 안쪽 여백 */
-    font-size: 16px; /* 글자 크기 설정 */
-    margin-bottom: 30px; /* 버튼과 입력 필드 간의 간격 */
+    font-size: 18px; /* 글자 크기 설정 */
+    border-radius: 5px;
+    margin-bottom: 5px; /* 버튼과 입력 필드 간의 간격 */
 }
 
 button {
-    width: 20%; /* 버튼 너비 설정 (60%로 조정) */
-    padding: 8px; /* 버튼 안쪽 여백 */
-    font-size: 16px; /* 글자 크기 설정 */
-    cursor: pointer; /* 마우스 커서 변경 */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Noto Sans KR", serif;
+    width: 270px;
+    height: 70px;
+    margin-top: 70px;
+    cursor: pointer;
+    border: none;
     border-radius: 5px;
+    background-color: #fff;
+    color: #000;
 }
 
 #resultMessage {
