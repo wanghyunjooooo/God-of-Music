@@ -29,7 +29,7 @@ body {
 }
 
 .scene-image {
-    width: 1050px;
+    width: 900px;
     height: 300px;
     height: auto; /* 이미지 비율 유지 */
     margin-bottom: 20px; /* 이미지 아래 여백 */
