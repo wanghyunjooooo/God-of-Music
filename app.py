@@ -41,9 +41,8 @@ def check_answer():
         # 정답일 경우
         return render_template('corrent.html', correct_answer=correct_answer, correct_image=correct_image)
     else:
-        # 오답일 경우
-        return redirect(url_for('wrong'))  # 오답 페이지로 리디렉션
-
+       # 오답일 경우
+        return render_template('wrong.html', correct_answer=correct_answer, correct_image=correct_image)  # 오답 페이지에 정답과 이미지를 전달
 @app.route('/correct')
 def correct():
     return render_template('corrent.html')  # 정답 페이지
