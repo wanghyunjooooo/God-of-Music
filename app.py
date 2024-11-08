@@ -26,8 +26,18 @@ quiz_data = [
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
 
+# 사용자의 정답 결과를 저장할 전역 변수
+score = {
+    'correct': 0,
+    'wrong': 0
+}
+
 @app.route('/')
 def quiz():
+    global score
+    if score['correct'] + score['wrong'] >= 10:  # 10문제를 풀면 결과 페이지로 이동
+        return redirect(url_for('results'))
+    
     scene = random.choice(quiz_data)  # 랜덤으로 퀴즈 장면 선택
     return render_template('mvquiz.html', scene=scene)
 
@@ -38,11 +48,22 @@ def check_answer():
     correct_image = request.form.get('correct_image')  # 정답 이미지 경로 추가
 
     if user_answer == correct_answer:
-        # 정답일 경우
+        global score
+        score['correct'] += 1  # 정답 수 증가
         return render_template('corrent.html', correct_answer=correct_answer, correct_image=correct_image)
     else:
-       # 오답일 경우
+        score['wrong'] += 1  # 오답 수 증가
         return render_template('wrong.html', correct_answer=correct_answer, correct_image=correct_image)  # 오답 페이지에 정답과 이미지를 전달
+
+@app.route('/results')
+def results():
+    global score
+    correct_count = score['correct']
+    wrong_count = score['wrong']
+    score['correct'] = 0  # 점수 초기화
+    score['wrong'] = 0
+    return render_template('results.html', correct=correct_count, wrong=wrong_count)
+
 @app.route('/correct')
 def correct():
     return render_template('corrent.html')  # 정답 페이지

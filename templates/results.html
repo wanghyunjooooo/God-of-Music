@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>퀴즈 결과</title>
+    <link rel="stylesheet" href="/static/mvquiz.css"> <!-- 스타일시트 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nuosu+SIL&family=Plaster&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .noto-sans-kr-uniquifier {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+    .next-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none; /* 링크 텍스트의 밑줄 제거 */
+    border-radius: 5px;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>퀴즈 결과</h1>
+        <h3>정답: {{ correct }}개</h3>
+        <h3>오답: {{ wrong }}개</h3>
+        <a href="/" class="next-button">다시 시작하기</a> <!-- 다시 시작 버튼 -->
+    </div>
+</body>
+</html>
