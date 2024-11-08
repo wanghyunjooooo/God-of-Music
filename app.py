@@ -23,6 +23,20 @@ quiz_data = [
     {"image": "/static/images/supernova.png", "answer": "supernova"},
     {"image": "/static/images/supersonic.png", "answer": "supersonic"},
     {"image": "/static/images/xo.png", "answer": "xo"},
+    {"image": "/static/images/drip.png", "answer": "drip"},
+    {"image": "/static/images/mantra.png", "answer": "mantra"},
+    {"image": "/static/images/power.png", "answer": "power"},
+    {"image": "/static/images/whiplash.png", "answer": "whiplash"},
+    {"image": "/static/images/magnetic.png", "answer": "magnetic"},
+    {"image": "/static/images/trigger.png", "answer": "trigger"},
+    {"image": "/static/images/뭣같아.png", "answer": "뭣같아"},
+    {"image": "/static/images/부모님관람불가.png", "answer": "부모님관람불가"},
+    {"image": "/static/images/baggyjeans.png", "answer": "baggyjeans"},
+    {"image": "/static/images/love119.png", "answer": "love119"},
+    {"image": "/static/images/serenade.png", "answer": "serenade"},
+    {"image": "/static/images/watchit.png", "answer": "watchit"},
+    {"image": "/static/images/wish.png", "answer": "wish"},
+
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
 
