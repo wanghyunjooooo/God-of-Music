@@ -35,16 +35,18 @@ def quiz():
 def check_answer():
     user_answer = request.form.get('answer').strip().lower()  # 사용자 입력
     correct_answer = request.form.get('correct_answer').strip().lower()  # 정답
+    correct_image = request.form.get('correct_image')  # 정답 이미지 경로 추가
 
     if user_answer == correct_answer:
-        return redirect(url_for('correct'))  # 정답일 경우
+        # 정답일 경우
+        return render_template('corrent.html', correct_answer=correct_answer, correct_image=correct_image)
     else:
-        return redirect(url_for('wrong'))  # 오답일 경우
+        # 오답일 경우
+        return redirect(url_for('wrong'))  # 오답 페이지로 리디렉션
 
 @app.route('/correct')
 def correct():
     return render_template('corrent.html')  # 정답 페이지
-
 
 @app.route('/wrong')
 def wrong():
