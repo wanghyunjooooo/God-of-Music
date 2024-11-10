@@ -36,6 +36,15 @@ quiz_data = [
     {"image": "/static/images/serenade.png", "answer": "serenade"},
     {"image": "/static/images/watchit.png", "answer": "watchit"},
     {"image": "/static/images/wish.png", "answer": "wish"},
+    {"image": "/static/images/클락션.png", "answer": "클락션"},
+    {"image": "/static/images/abcd.png", "answer": "abcd"},
+    {"image": "/static/images/cherish.png", "answer": "cherish"},
+    {"image": "/static/images/cosmic.png", "answer": "cosmic"},
+    {"image": "/static/images/dunkshot.png", "answer": "dunkshot"},
+    {"image": "/static/images/forever.png", "answer": "forever"},
+    {"image": "/static/images/howsweet.png", "answer": "howsweet"},
+    {"image": "/static/images/impossible.png", "answer": "impossible"},
+    {"image": "/static/images/meow.png", "answer": "meow"},
 
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
