@@ -49,6 +49,7 @@ quiz_data = [
     {"image": "/static/images/smallgirl.png", "answer": "smallgirl"},
     {"image": "/static/images/to.x.png", "answer": "to.x"},
     {"image": "/static/images/내가s면넌나의n이되어줘.png", "answer": "내가s면넌나의n이되어줘"},
+    {"image": "/static/images/첫만남은계획대로되지않아.png", "answer": "첫만남은계획대로되지않아"},
 
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
