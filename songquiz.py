@@ -18,7 +18,7 @@ def quiz():
         return redirect(url_for('results'))
     
     question = random.choice(quiz_data)  # 랜덤으로 퀴즈 선택
-    return render_template('songquiz.html', question=question)
+    return render_template('songquiz.html', question=question)  # 템플릿에 question 전달
 
 @app.route('/check_answer', methods=['POST'])
 def check_answer():
@@ -35,7 +35,7 @@ def check_answer():
         return render_template('songquiz-correct.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id, audio=audio)
     else:
         score['wrong'] += 1
-        return render_template('songquiz-wrong.html', correct_answer=correct_answer)
+        return render_template('songquiz-wrong.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id, audio=audio)
 
 @app.route('/results')
 def results():
