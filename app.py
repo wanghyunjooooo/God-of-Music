@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 # 퀴즈 데이터 (이미지와 정답을 추가하여 확장 가능)
 quiz_data = [
-    {"image": "/static/images/apt.png", "answer": "apt"},
+    {"image": "/static/images/apt.png", "answer": "apt,아파트"},
     {"image": "/static/images/별별별.png", "answer": "별별별"},
     {"image": "/static/images/네모네모.png", "answer": "네모네모"},
     {"image": "/static/images/녹아내려요.png", "answer": "녹아내려요"},
     {"image": "/static/images/반딧불.png", "answer": "반딧불"},
     {"image": "/static/images/삐그덕.png", "answer": "삐그덕"},
-    {"image": "/static/images/사랑돈명예.png", "answer": "사랑돈명예"},
+    {"image": "/static/images/사랑돈명예.png", "answer": "사랑 돈 명예"},
     {"image": "/static/images/해야.png", "answer": "해야"},
     {"image": "/static/images/boomboombase.png", "answer": "boomboombase"},
     {"image": "/static/images/chkchkboom.png", "answer": "chkchkboom"},
@@ -71,17 +71,18 @@ def quiz():
 
 @app.route('/check_answer', methods=['POST'])
 def check_answer():
-    user_answer = request.form.get('answer').strip().lower()  # 사용자 입력
-    correct_answer = request.form.get('correct_answer').strip().lower()  # 정답
+    user_answer = request.form.get('answer').strip().lower().replace(" ", "")  # 사용자 입력에서 띄어쓰기 제거
+    correct_answers = request.form.get('correct_answer').strip().lower().split(',')
+    correct_answers = [ans.strip().replace(" ", "") for ans in correct_answers]  # 정답 리스트에서도 띄어쓰기 제거
     correct_image = request.form.get('correct_image')  # 정답 이미지 경로 추가
 
-    if user_answer == correct_answer:
+    if user_answer in correct_answers:
         global score
         score['correct'] += 1  # 정답 수 증가
-        return render_template('corrent.html', correct_answer=correct_answer, correct_image=correct_image)
+        return render_template('correct.html', correct_answer=correct_answers[0], correct_image=correct_image)
     else:
         score['wrong'] += 1  # 오답 수 증가
-        return render_template('wrong.html', correct_answer=correct_answer, correct_image=correct_image)  # 오답 페이지에 정답과 이미지를 전달
+        return render_template('wrong.html', correct_answer=correct_answers[0], correct_image=correct_image)  # 오답 페이지에 정답과 이미지를 전달
 
 @app.route('/results')
 def results():
@@ -94,7 +95,7 @@ def results():
 
 @app.route('/correct')
 def correct():
-    return render_template('corrent.html')  # 정답 페이지
+    return render_template('correct.html')  # 정답 페이지
 
 @app.route('/wrong')
 def wrong():
