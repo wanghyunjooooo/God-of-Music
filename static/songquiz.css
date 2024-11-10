@@ -1,0 +1,65 @@
+.noto-sans-kr-uniquifier {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    font-family: "Noto Sans KR", serif;
+    margin: 0;
+}
+.logo {
+    position: fixed; /* 고정 위치 */
+    top: 10px; /* 상단에서 10px 떨어진 위치 */
+    left: 10px; /* 왼쪽에서 10px 떨어진 위치 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.container {
+    text-align: center; /* 내용 중앙 정렬 */
+    margin-top: 100px; /* 로고 아래 여백을 추가 */
+    flex-direction: column;
+}
+
+.input-area {
+    display: flex; /* 입력 필드와 버튼을 수평으로 정렬 */
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center; /* 중앙 정렬 */
+    margin-top: 150px;
+}
+
+.sound-icon {
+    font-size: 8rem;
+    cursor: pointer;
+    height: auto; 
+}
+
+input[type="text"] {
+    font-family: "Noto Sans KR", serif;
+    width: 1000px; /* 입력 필드 너비 설정 (80%로 조정) */
+    height: 45px;
+    padding: 10px; /* 입력 필드 안쪽 여백 */
+    font-size: 18px; /* 글자 크기 설정 */
+    border-radius: 5px;
+    margin-bottom: 5px; /* 버튼과 입력 필드 간의 간격 */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Noto Sans KR", serif;
+    width: 270px;
+    height: 70px;
+    margin-top: 70px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+}

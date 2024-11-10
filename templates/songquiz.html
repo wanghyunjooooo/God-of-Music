@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>노래방 반주 퀴즈</title>
-    <link rel="stylesheet" href="/static/mvquiz.css">
+    <link rel="stylesheet" href="/static/songquiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nuosu+SIL&family=Plaster&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
-    <h1>노래방 반주 퀴즈</h1>
-    <button onclick="playAudio()">소리 듣기 (3초)</button>
+    <div class="logo">
+        <img src="/static/images/음악의신로고.png" alt="음악의 신 로고">
+    </div>
+    <div class="container">
+    <i class="bi bi-volume-up-fill sound-icon" onclick="playAudio()"></i>
     <audio id="audio" src="{{ question['audio'] }}"></audio>
 
     <form action="/check_answer" method="POST">
+        <div class="input-area">
         <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
         <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
-        <button type="submit">제출</button>
+        </div>
+        <button type="submit">입력하기</button>
     </form>
-
+    </div>
     <script src="/static/songquiz.js"></script>
 </body>
 </html>
