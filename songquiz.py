@@ -25,13 +25,14 @@ def check_answer():
     user_answer = request.form.get('answer').strip().lower()
     correct_answer = request.form.get('correct_answer').strip().lower()
     music_video_url = request.form.get('music_video_url')  # 뮤직비디오 URL 가져오기
+    audio = request.form.get('audio')  # 오디오 파일 경로 가져오기
 
     # video_id 추출
     video_id = music_video_url.split('/embed/')[-1]
 
     if user_answer == correct_answer:
         score['correct'] += 1
-        return render_template('songquiz-correct.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id)
+        return render_template('songquiz-correct.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id, audio=audio)
     else:
         score['wrong'] += 1
         return render_template('songquiz-wrong.html', correct_answer=correct_answer)

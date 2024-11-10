@@ -49,11 +49,14 @@ button {
     <div class="container">
         <h1>정답입니다!</h1>
 
-        <!-- 썸네일 이미지 표시 -->
+        <!-- 자동으로 재생되는 정답 오디오 -->
+        <audio autoplay>
+            <source src="{{ audio }}" type="audio/mp3">
+        </audio>
+
         <div class="music-thumbnail">
             <a href="{{ music_video_url }}" target="_blank">
-                <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" 
-                     alt="YouTube Thumbnail" width="560" height="315">
+                <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" alt="YouTube Thumbnail" width="560" height="315">
             </a>
         </div>
 
@@ -64,5 +67,9 @@ button {
             <button type="submit">다음 문제로</button>
         </form>
     </div>
+    <script>
+        // 페이지 로드 시 자동 재생 설정
+        document.getElementById("correct-audio").play();
+    </script>
 </body>
 </html>
