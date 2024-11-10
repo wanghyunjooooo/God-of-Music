@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정답!</title>
+    <link rel="stylesheet" href="/static/mvquiz.css"> <!-- 스타일시트 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nuosu+SIL&family=Plaster&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .noto-sans-kr-uniquifier {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.music-video {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.correct-answer {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none; /* 링크 텍스트의 밑줄 제거 */
+    border-radius: 5px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>정답입니다!</h1>
+
+        <!-- 썸네일 이미지 표시 -->
+        <div class="music-thumbnail">
+            <a href="{{ music_video_url }}" target="_blank">
+                <img src="https://img.youtube.com/vi/{{ video_id }}/hqdefault.jpg" 
+                     alt="YouTube Thumbnail" width="560" height="315">
+            </a>
+        </div>
+
+        <p class="correct-answer">정답: {{ correct_answer }}</p>
+        
+        <!-- 다음 문제로 이동하는 버튼 -->
+        <form action="/" method="GET">
+            <button type="submit">다음 문제로</button>
+        </form>
+    </div>
+</body>
+</html>
