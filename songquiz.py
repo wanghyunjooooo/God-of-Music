@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # 퀴즈 데이터 - 각 문제에 대한 오디오 파일 경로와 정답을 설정
 quiz_data = [
-    {"audio": "/static/audio/song1.mp3", "answer": "song1"},
-    {"audio": "/static/audio/song2.mp3", "answer": "song2"},
+    {"audio": "/static/audio/Steady.mp3", "answer": "steady"},
+    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "dunk shot"},
     # 추가적인 문제를 여기에 추가
 ]
 
