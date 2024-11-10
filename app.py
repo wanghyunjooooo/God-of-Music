@@ -46,6 +46,7 @@ quiz_data = [
     {"image": "/static/images/impossible.png", "answer": "impossible"},
     {"image": "/static/images/meow.png", "answer": "meow"},
     {"image": "/static/images/spot.png", "answer": "spot"},
+    {"image": "/static/images/smallgirl.png", "answer": "smallgirl"},
 
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
