@@ -17,16 +17,15 @@
         <img src="/static/images/음악의신로고.png" alt="음악의 신 로고">
     </div>
     <div class="container">
-    <i class="bi bi-volume-up-fill sound-icon" onclick="playAudio()"></i>
-    <audio id="audio" src="{{ question['audio'] }}"></audio>
+        <i class="bi bi-volume-up-fill sound-icon" onclick="playAudio()"></i>
+        <audio id="audio" src="{{ question['audio'] }}"></audio>
 
-    <form action="/check_answer" method="POST">
-        <div class="input-area">
-        <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
-        <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
-        </div>
-        <button type="submit">입력하기</button>
-    </form>
+        <form action="/check_answer" method="POST" class="quiz-form">
+            <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
+            <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
+            <input type="hidden" name="music_video_url" value="{{ question['music_video_url'] }}"> <!-- 뮤직비디오 URL 전달 -->
+            <button type="submit">입력하기</button>
+        </form>
     </div>
     <script src="/static/songquiz.js"></script>
 </body>

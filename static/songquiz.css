@@ -20,26 +20,28 @@ body {
     left: 10px; /* 왼쪽에서 10px 떨어진 위치 */
     z-index: 1000; /* 다른 요소 위에 표시 */
 }
-
 .container {
     text-align: center; /* 내용 중앙 정렬 */
     margin-top: 100px; /* 로고 아래 여백을 추가 */
     flex-direction: column;
 }
-
 .input-area {
     display: flex; /* 입력 필드와 버튼을 수평으로 정렬 */
     flex-direction: column; /* 세로로 쌓기 */
     align-items: center; /* 중앙 정렬 */
     margin-top: 150px;
 }
-
 .sound-icon {
     font-size: 8rem;
     cursor: pointer;
     height: auto; 
 }
-
+.quiz-form {
+    margin: 150px 0px 0px 0px;
+    display: flex;
+    flex-direction: column; /* 요소를 세로로 배치 */
+    align-items: center;
+}
 input[type="text"] {
     font-family: "Noto Sans KR", serif;
     width: 1000px; /* 입력 필드 너비 설정 (80%로 조정) */
@@ -49,7 +51,6 @@ input[type="text"] {
     border-radius: 5px;
     margin-bottom: 5px; /* 버튼과 입력 필드 간의 간격 */
 }
-
 button {
     padding: 10px 20px;
     font-size: 18px;
@@ -63,3 +64,4 @@ button {
     background-color: #fff;
     color: #000;
 }
+
