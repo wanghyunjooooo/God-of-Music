@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노래방 반주 퀴즈</title>
+    <link rel="stylesheet" href="/static/mvquiz.css">
+</head>
+<body>
+    <h1>노래방 반주 퀴즈</h1>
+    <button onclick="playAudio()">소리 듣기 (3초)</button>
+    <audio id="audio" src="{{ question['audio'] }}"></audio>
+
+    <form action="/check_answer" method="POST">
+        <input type="text" name="answer" placeholder="노래 제목을 입력하세요">
+        <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
+        <button type="submit">제출</button>
+    </form>
+
+    <script src="/static/songquiz.js"></script>
+</body>
+</html>
