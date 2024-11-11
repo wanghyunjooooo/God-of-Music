@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import random
 
-app = Flask(__name__)
-
+# 첫 번째 Flask 앱 객체 생성
+mvquiz_app = Flask(__name__)
 # 퀴즈 데이터 (이미지와 정답을 추가하여 확장 가능)
-quiz_data = [
+mvquiz_data = [
     {"image": "/static/images/apt.png", "answer": "apt,아파트"},
     {"image": "/static/images/별별별.png", "answer": "별별별"},
     {"image": "/static/images/네모네모.png", "answer": "네모네모"},
@@ -53,53 +53,45 @@ quiz_data = [
 
     # 여기에 추가적인 이미지와 정답을 넣을 수 있습니다.
 ]
-
 # 사용자의 정답 결과를 저장할 전역 변수
-score = {
+# 사용자의 정답 결과를 저장할 전역 변수
+mvquiz_score = {
     'correct': 0,
     'wrong': 0
 }
 
-@app.route('/')
+@mvquiz_app.route('/')
 def quiz():
-    global score
-    if score['correct'] + score['wrong'] >= 10:  # 10문제를 풀면 결과 페이지로 이동
+    global mvquiz_score
+    if mvquiz_score['correct'] + mvquiz_score['wrong'] >= 10:
         return redirect(url_for('results'))
     
-    scene = random.choice(quiz_data)  # 랜덤으로 퀴즈 장면 선택
+    scene = random.choice(mvquiz_data)
     return render_template('mvquiz.html', scene=scene)
 
-@app.route('/check_answer', methods=['POST'])
+@mvquiz_app.route('/check_answer', methods=['POST'])
 def check_answer():
-    user_answer = request.form.get('answer').strip().lower().replace(" ", "")  # 사용자 입력에서 띄어쓰기 제거
+    user_answer = request.form.get('answer').strip().lower().replace(" ", "")
     correct_answers = request.form.get('correct_answer').strip().lower().split(',')
-    correct_answers = [ans.strip().replace(" ", "") for ans in correct_answers]  # 정답 리스트에서도 띄어쓰기 제거
-    correct_image = request.form.get('correct_image')  # 정답 이미지 경로 추가
+    correct_answers = [ans.strip().replace(" ", "") for ans in correct_answers]
+    correct_image = request.form.get('correct_image')
 
     if user_answer in correct_answers:
-        global score
-        score['correct'] += 1  # 정답 수 증가
+        global mvquiz_score
+        mvquiz_score['correct'] += 1
         return render_template('correct.html', correct_answer=correct_answers[0], correct_image=correct_image)
     else:
-        score['wrong'] += 1  # 오답 수 증가
-        return render_template('wrong.html', correct_answer=correct_answers[0], correct_image=correct_image)  # 오답 페이지에 정답과 이미지를 전달
+        mvquiz_score['wrong'] += 1
+        return render_template('wrong.html', correct_answer=correct_answers[0], correct_image=correct_image)
 
-@app.route('/results')
+@mvquiz_app.route('/results')
 def results():
-    global score
-    correct_count = score['correct']
-    wrong_count = score['wrong']
-    score['correct'] = 0  # 점수 초기화
-    score['wrong'] = 0
+    global mvquiz_score
+    correct_count = mvquiz_score['correct']
+    wrong_count = mvquiz_score['wrong']
+    mvquiz_score['correct'] = 0
+    mvquiz_score['wrong'] = 0
     return render_template('results.html', correct=correct_count, wrong=wrong_count)
 
-@app.route('/correct')
-def correct():
-    return render_template('correct.html')  # 정답 페이지
-
-@app.route('/wrong')
-def wrong():
-    return render_template('wrong.html')  # 오답 페이지
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    mvquiz_app.run(debug=True)
