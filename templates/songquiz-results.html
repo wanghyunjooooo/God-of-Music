@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결과</title>
-    <link rel="stylesheet" href="/static/mvquiz.css"> <!-- 스타일시트 추가 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,29 +11,82 @@
         rel="stylesheet">
 </head>
 <style>
-    .noto-sans-kr-uniquifier {
-    font-family: "Noto Sans KR", serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Noto Sans KR", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
-    .next-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+header img.godofmusic {
+    width: 150px;
+}
+
+.result-box {
     background-color: #fff;
     color: #000;
-    text-decoration: none; /* 링크 텍스트의 밑줄 제거 */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;  /* 세로 정렬 */
+    align-items: center;     /* 가운데 정렬 */
+}
+
+.result-box h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;     /* 제목 아래 공간 추가 */
+}
+
+.result-box p {
+    font-size: 24px;
+    margin: 10px 0;          /* 문단 사이 공간 추가 */
+}
+
+.result-box button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 10px;        /* 버튼 간격을 동일하게 설정 */
+    cursor: pointer;
+    border: none;
     border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    width: 80%;              /* 버튼을 전체 너비의 80%로 설정 */
+    max-width: 300px;        /* 최대 너비 제한 */
 }
 </style>
 <body>
     <div class="container">
-    <h1>퀴즈 결과</h1>
-    <h3>정답 개수: {{ correct }}</h3>
-    <h3>오답 개수: {{ wrong }}</h3>
-    <a href="/" class="next-button">다시 시작하기</a>
-</div>
+        <header>
+            <img src="/static/images/음악의신로고.png" alt="음악의 신" class="godofmusic">
+        </header>
+        <div class="result-box">
+            <h2>퀴즈 결과</h2>
+            <p>정답: {{ correct }}개</p>
+            <p>오답: {{ wrong }}개</p>
+            <button onclick="location.href='/'">다시 시작하기</button>
+            <button onclick="location.href='/another-quiz'">다른 퀴즈 도전 하기</button>
+        </div>
+    </div>
 </body>
 </html>
