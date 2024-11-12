@@ -13,9 +13,8 @@ mvquiz_data = [
     {"image": "/static/images/xo.png", "answer": "xo"},
     {"image": "/static/images/mantra.png", "answer": "mantra , 만트라"},
     {"image": "/static/images/power.png", "answer": "power , 파워"},
-    {"image": "/static/images/serenabe.png", "answer": "serenabe,세레나데"},
-    {"image": "/static/images/abcd.png", "answer": "abcd , 에이비씨디 , 에이비시디"},
-    {"image": "/static/images/첫만남은계획대로되지않아.png", "answer": "첫만남은계획대로되지않아"},
+    {"image": "/static/images/serenade.png", "answer": "serenade,세레나데"},
+    {"image": "/static/images/네모네모.png", "answer": "네모네모"},
 ]
 
 # 사용자의 정답 결과를 저장할 전역 변수
