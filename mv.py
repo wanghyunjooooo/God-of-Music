@@ -79,10 +79,10 @@ def check_answer():
     if user_answer in correct_answers:
         global mvquiz_score
         mvquiz_score['correct'] += 1
-        return render_template('correct.html', correct_answer=correct_answers[0], correct_image=correct_image)
+        return render_template('mvquiz-correct.html', correct_answer=correct_answers[0], correct_image=correct_image)
     else:
         mvquiz_score['wrong'] += 1
-        return render_template('wrong.html', correct_answer=correct_answers[0], correct_image=correct_image)
+        return render_template('mvquiz-wrong.html', correct_answer=correct_answers[0], correct_image=correct_image)
 
 @mvquiz_app.route('/results')
 def results():
@@ -91,7 +91,7 @@ def results():
     wrong_count = mvquiz_score['wrong']
     mvquiz_score['correct'] = 0
     mvquiz_score['wrong'] = 0
-    return render_template('results.html', correct=correct_count, wrong=wrong_count)
+    return render_template('mvquiz-results.html', correct=correct_count, wrong=wrong_count)
 
 if __name__ == '__main__':
     mvquiz_app.run(debug=True)
