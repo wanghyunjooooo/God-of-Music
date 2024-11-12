@@ -6,19 +6,18 @@ songquiz_app = Flask(__name__)
 
 # 퀴즈 데이터 - 각 문제에 대한 오디오 파일 경로와 정답을 설정
 songquiz_data = [
-    {"audio": "/static/audio/Steady.mp3", "answer": "steady 스테디", "music_video_url": "https://www.youtube.com/embed/IKlkZZv76Ho"},
-    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "dunk shot 덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
-    {"audio": "/static/audio/Songbird.mp3", "answer": "songbird 송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
-    {"audio": "/static/audio/WISH.mp3", "answer": "wish 위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
-    {"audio": "/static/audio/Siren.mp3", "answer": "siren 사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
+    {"audio": "/static/audio/Steady.mp3", "answer": "Steady,스테디", "music_video_url": "https://www.youtube.com/embed/IKlkZZv76Ho"},
+    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "Dunk shot,덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
+    {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird,송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
+    {"audio": "/static/audio/WISH.mp3", "answer": "Wish,위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
+    {"audio": "/static/audio/Siren.mp3", "answer": "Siren,사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
     {"audio": "/static/audio/부모님관람불가.mp3", "answer": "부모님관람불가", "music_video_url": "https://www.youtube.com/embed/YkCXVgcsGTU"},
-    {"audio": "/static/audio/Lucky.mp3", "answer": "Lucky 럭키", "music_video_url": "https://www.youtube.com/embed/3Q49g7M5MlU"},
-    {"audio": "/static/audio/One kiss.mp3", "answer": "One kiss 원키스", "music_video_url": "https://www.youtube.com/embed/46dquyaoe_c"},
-    {"audio": "/static/audio/Happy.mp3", "answer": "Happy 해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
-    {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash 위플래쉬 위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"},
+    {"audio": "/static/audio/Lucky.mp3", "answer": "Lucky,럭키", "music_video_url": "https://www.youtube.com/embed/3Q49g7M5MlU"},
+    {"audio": "/static/audio/One kiss.mp3", "answer": "One kiss,원키스", "music_video_url": "https://www.youtube.com/embed/46dquyaoe_c"},
+    {"audio": "/static/audio/Happy.mp3", "answer": "Happy,해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
+    {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash,위플래쉬,위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"},
     # 추가적인 문제를 여기에 추가   
 ]
-
 songquiz_score = {'correct': 0, 'wrong': 0} 
 songquiz_index = 0  
 
@@ -34,23 +33,26 @@ def quiz():
 @songquiz_app.route('/check_answer', methods=['POST'])
 def check_answer():
     global songquiz_index
-    user_answer = request.form.get('answer').strip().lower()
-    correct_answer = request.form.get('correct_answer').strip().lower()
+    user_answer = request.form.get('answer').strip().lower().replace(" ", "")
+    correct_answers = request.form.get('correct_answer').strip().lower().split(',')
+    correct_answers = [ans.strip().replace(" ", "") for ans in correct_answers]  # 정답 리스트에서 띄어쓰기 제거
+
     music_video_url = request.form.get('music_video_url')
     audio = request.form.get('audio')
-
     video_id = music_video_url.split('/embed/')[-1]
 
-    if user_answer == correct_answer:
+    # 여러 정답 중 하나와 일치하는지 확인
+    if user_answer in correct_answers:
         songquiz_score['correct'] += 1
     else:
         songquiz_score['wrong'] += 1
 
-    songquiz_index += 1
-    if user_answer == correct_answer:
-        return render_template('songquiz-correct.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id, audio=audio)
+    songquiz_index += 1  # 문제 인덱스 증가
+
+    if user_answer in correct_answers:
+        return render_template('songquiz-correct.html', correct_answer=correct_answers[0], music_video_url=music_video_url, video_id=video_id, audio=audio)
     else:
-        return render_template('songquiz-wrong.html', correct_answer=correct_answer, music_video_url=music_video_url, video_id=video_id, audio=audio)
+        return render_template('songquiz-wrong.html', correct_answer=correct_answers[0], music_video_url=music_video_url, video_id=video_id, audio=audio)
 
 @songquiz_app.route('/results')
 def results():
