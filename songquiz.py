@@ -6,16 +6,16 @@ songquiz_app = Flask(__name__)
 
 # 퀴즈 데이터 - 각 문제에 대한 오디오 파일 경로와 정답을 설정
 songquiz_data = [
-    {"audio": "/static/audio/Steady.mp3", "answer": "Steady,스테디", "music_video_url": "https://www.youtube.com/embed/IKlkZZv76Ho"},
-    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "Dunk shot,덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
-    {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird,송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
-    {"audio": "/static/audio/WISH.mp3", "answer": "Wish,위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
-    {"audio": "/static/audio/Siren.mp3", "answer": "Siren,사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
     {"audio": "/static/audio/부모님관람불가.mp3", "answer": "부모님관람불가", "music_video_url": "https://www.youtube.com/embed/YkCXVgcsGTU"},
-    {"audio": "/static/audio/Lucky.mp3", "answer": "Lucky,럭키", "music_video_url": "https://www.youtube.com/embed/3Q49g7M5MlU"},
-    {"audio": "/static/audio/One kiss.mp3", "answer": "One kiss,원키스", "music_video_url": "https://www.youtube.com/embed/46dquyaoe_c"},
     {"audio": "/static/audio/Happy.mp3", "answer": "Happy,해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
+    {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird,송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
     {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash,위플래쉬,위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"},
+    {"audio": "/static/audio/WISH.mp3", "answer": "Wish,위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
+    {"audio": "/static/audio/질주.mp3", "answer": "질주", "music_video_url": "https://www.youtube.com/embed/FRilMXZqNhA"},
+    {"audio": "/static/audio/How sweet.mp3", "answer": "how sweet,하우스윗", "music_video_url": "https://www.youtube.com/embed/Q3K0TOvTOno"},
+    {"audio": "/static/audio/Supersonic.mp3", "answer": "supersonic,수퍼소닉,슈퍼소닉", "music_video_url": "https://www.youtube.com/embed/0LiQp7y8Wwc"},
+    {"audio": "/static/audio/Thrill ride.mp3", "answer": "thrill ride,스릴라이드", "music_video_url": "https://www.youtube.com/embed/XMs2CIiqRDI"},
+    {"audio": "/static/audio/To x.mp3", "answer": "to.x,to x,투엑스", "music_video_url": "https://www.youtube.com/embed/5_n6t9G2TUQ"},
     # 추가적인 문제를 여기에 추가   
 ]
 songquiz_score = {'correct': 0, 'wrong': 0} 
